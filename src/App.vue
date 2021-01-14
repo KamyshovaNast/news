@@ -22,8 +22,8 @@
             :key="i"
             cols="4">
             <v-card height="200">
-                <h3></h3>
-                <p></p>
+                <h3>{{i.title}}</h3>
+                <p>{{i.description}}</p>
             </v-card>
           </v-col>
         </v-row>
