@@ -3,6 +3,7 @@
     <v-app-bar
       app
       shrink-on-scroll
+    class="light-green lighten-4"
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
@@ -15,7 +16,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="light-green lighten-5">
       <v-container>
         <v-row>
           <v-col v-for="i in news"
