@@ -22,8 +22,8 @@
             :key="i"
             cols="4">
             <v-card height="200">
-                <h3>{{news.articles.title}}</h3>
-                <p>{{news.articles.description}}</p>
+                <h3></h3>
+                <p></p>
             </v-card>
           </v-col>
         </v-row>
@@ -43,7 +43,7 @@
         methods: {
             getNews() {
                 this.axios
-                .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .get("https://newsapi.org/v2/top-headlines?country=ru&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
                 .then((response) => {this.news = response.data})
             }
         },
