@@ -18,12 +18,13 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col
-            v-for="n in 12"
-            :key="n"
-            cols="4"
-          >
-            <v-card height="200"></v-card>
+          <v-col v-for="i in news"
+            :key="i"
+            cols="4">
+            <v-card height="200">
+                <h3>{{news.articles.title}}</h3>
+                <p>{{news.articles.description}}</p>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -34,10 +35,16 @@
 <script>
     export default {
         name: 'App',
+        data() {
+            return {
+                news: {}
+            }
+        },
         methods: {
             getNews() {
                 this.axios
                 .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .then((response) => {this.news = response.data})
             }
         },
         mounted() {
