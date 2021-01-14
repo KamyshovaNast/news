@@ -22,9 +22,9 @@
             :key="i"
             cols="4">
             <v-card>
-                <h3>{{i.title}}</h3>
-                <p>{{i.description}}</p>
-                <p>Источник: <a v-bind:href="i.url">тут</a></p>
+                <v-card-title>{{i.title}}</v-card-title>
+                <v-card-text>{{i.description}}</v-card-text>
+                <v-card-actions><a v-bind:href="i.url">Источник</a></v-card-actions>
             </v-card>
           </v-col>
         </v-row>
@@ -56,8 +56,8 @@
 
 
 <style>
-    h3, p {
+    a {
         box-sizing: border-box;
-        padding: 10px;
+        padding-left: 8px;
     }
 </style>
