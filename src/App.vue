@@ -6,7 +6,7 @@
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Новости</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -21,9 +21,10 @@
           <v-col v-for="i in news"
             :key="i"
             cols="4">
-            <v-card height="200">
+            <v-card>
                 <h3>{{i.title}}</h3>
                 <p>{{i.description}}</p>
+                <p>Источник: <a v-bind:href="i.url">тут</a></p>
             </v-card>
           </v-col>
         </v-row>
@@ -52,3 +53,11 @@
         }
     }
 </script>
+
+
+<style>
+    h3, p {
+        box-sizing: border-box;
+        padding: 10px;
+    }
+</style>
