@@ -19,7 +19,7 @@
       <v-container>
         <v-row>
           <v-col
-            v-for="n in 24"
+            v-for="n in 12"
             :key="n"
             cols="4"
           >
@@ -32,7 +32,16 @@
 </template>
 
 <script>
-  export default {
-    //
-  }
+    export default {
+        name: 'App',
+        methods: {
+            getNews() {
+                this.axios
+                .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+            }
+        },
+        mounted() {
+            this.getNews();
+        }
+    }
 </script>
