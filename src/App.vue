@@ -6,9 +6,18 @@
     class="light-green lighten-4"
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Новости</v-toolbar-title>
-
+      
+      <v-spacer></v-spacer>
+      <v-btn elevation="2" class="new" v-on:click="getNewsRu">Новости</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn elevation="2" class="new" v-on:click="getNewsGb">News (GB)</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn elevation="2" class="new" v-on:click="getNewsUs">News (USA)</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn elevation="2" class="new" v-on:click="getNewsGe">Die Nachrichten</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn elevation="2" class="new" v-on:click="getNewsFr">Nouvelles</v-btn>
+      
       <v-spacer></v-spacer>
 
       <v-btn icon>
@@ -43,14 +52,34 @@
             }
         },
         methods: {
-            getNews() {
+            getNewsRu() {
                 this.axios
                 .get("https://newsapi.org/v2/top-headlines?country=ru&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .then((response) => {this.news = response.data.articles})
+            },
+            getNewsUs() {
+                this.axios
+                .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .then((response) => {this.news = response.data.articles})
+            },
+            getNewsGb() {
+                this.axios
+                .get("https://newsapi.org/v2/top-headlines?country=gb&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .then((response) => {this.news = response.data.articles})
+            },
+            getNewsGe() {
+                this.axios
+                .get("https://newsapi.org/v2/top-headlines?country=de&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
+                .then((response) => {this.news = response.data.articles})
+            },
+            getNewsFr() {
+                this.axios
+                .get("https://newsapi.org/v2/top-headlines?country=fr&apiKey=d7f41a32c26b4bbfb596d58b1a54c766")
                 .then((response) => {this.news = response.data.articles})
             }
         },
         mounted() {
-            this.getNews();
+            this.getNewsRu();
         }
     }
 </script>
@@ -60,5 +89,8 @@
     a {
         box-sizing: border-box;
         padding-left: 8px;
+    }
+    .new {
+        margin-top: 40px;
     }
 </style>
