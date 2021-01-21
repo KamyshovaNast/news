@@ -91,6 +91,6 @@
         padding-left: 8px;
     }
     .new {
-        margin-top: 40px;
+        margin-top: 5px;
     }
 </style>
